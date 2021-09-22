@@ -6,7 +6,7 @@
 /*   By: buthor <buthor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 12:20:56 by buthor            #+#    #+#             */
-/*   Updated: 2021/09/22 16:45:04 by buthor           ###   ########.fr       */
+/*   Updated: 2021/09/22 20:17:35 by buthor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	start_of_simulation(t_data *data, long long start_time)
 		}
 		index++;
 	}
-	usleep(data->args.qty_of_philos * 15);
+	usleep(data->args.qty_of_philos * 20);
 	index = 1;
 	while (index < data->args.qty_of_philos)
 	{
@@ -84,7 +84,10 @@ int	main(int argc, char **argv)
 	if (check_args(argc, argv) == FALSE)
 		return (print_and_return(WRONG_ARGS));
 	if (init_data(argc, argv, &data) == FALSE)
+	{
+		check_leaks_and_free(&data);
 		return (print_and_return("Can't init_data\n"));
+	}
 	start_time = get_time();
 	if (data.args.qty_of_philos == 1)
 	{
@@ -96,7 +99,6 @@ int	main(int argc, char **argv)
 		start_of_simulation(&data, start_time);
 	while (end_of_simulation == FALSE && data.args.qty_of_philos > 1)
 		end_of_simulation = check_death(&data, start_time, 0, 0);
-	free(data.forks);
-	free(data.philo);
+	check_leaks_and_free(&data);
 	return (TRUE);
 }

@@ -6,7 +6,7 @@
 /*   By: buthor <buthor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 15:55:23 by buthor            #+#    #+#             */
-/*   Updated: 2021/09/22 16:05:59 by buthor           ###   ########.fr       */
+/*   Updated: 2021/09/22 20:42:32 by buthor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,12 @@ int	check_death(t_data *data, long long start_time, int index, int qty_ate_idx)
 		index++;
 	}
 	return (FALSE);
+}
+
+void	check_leaks_and_free(t_data *data)
+{
+	if (data->forks != NULL)
+		free(data->forks);
+	if (data->philo != NULL)
+		free(data->philo);
 }

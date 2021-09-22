@@ -79,4 +79,5 @@ void		printf_whith_mutex(char *text, t_philosophers *philo);
 void		stopwatch(long time);
 int			check_death(t_data *data, long long start_time, int index,
 				int qty_ate_idx);
+void		check_leaks_and_free(t_data *data);
 #endif
