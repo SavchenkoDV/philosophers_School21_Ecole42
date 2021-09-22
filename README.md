@@ -1,7 +1,7 @@
 # The Dining Philosophers Problem
 This is a classic task that provides an understanding of Process synchronization, work with threads.
 
-![An_illustration_of_the_dining_philosophers_problem](https://user-images.githubusercontent.com/78852244/134366370-f6ab0221-ad9b-4a7b-b030-e898d9b8e257.png)
+![img-W1Z1SQ](https://user-images.githubusercontent.com/78852244/134367878-68a87ae8-8203-4e5e-8794-fa322d7c1327.png)
 
 Exercise:
 ---------------------------------------------------------------------------------------------------------------------------------
